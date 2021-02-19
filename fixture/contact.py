@@ -4,16 +4,6 @@ class ContactHelper:
     def __init__(self, app):
         self.app = app
 
-    def add_contact(self, new_contact):
-        self.open_add_new_page()
-        self.enter_name_data(new_contact)
-        self.enter_job_data(new_contact)
-        self.enter_telephone_data(new_contact)
-        self.enter_email_data(new_contact)
-        self.enter_birthday(new_contact)
-        self.click_enter()
-        self.click_home_page()
-
     def click_home_page(self):
         wd = self.app.wd
         wd.find_element_by_link_text("home page").click()
@@ -94,3 +84,35 @@ class ContactHelper:
     def open_add_new_page(self):
         wd = self.app.wd
         wd.find_element_by_link_text("add new").click()
+
+    def add_contact(self, new_contact):
+        self.open_add_new_page()
+        self.enter_name_data(new_contact)
+        self.enter_job_data(new_contact)
+        self.enter_telephone_data(new_contact)
+        self.enter_email_data(new_contact)
+        self.enter_birthday(new_contact)
+        self.click_enter()
+        self.click_home_page()
+
+    def delete_first_contact(self):
+        wd = self.app.wd
+        wd.find_element_by_link_text("Last name")
+        wd.find_element_by_name("selected[]").click()
+        wd.find_element_by_xpath("//input[@value='Delete']").click()
+        wd.switch_to_alert().accept()
+
+    def edit_first_contact(self, edit_contact):
+        wd = self.app.wd
+        wd.find_element_by_xpath("//img[@title='Edit']").click()
+        self.enter_name_data(edit_contact)
+        self.enter_job_data(edit_contact)
+        self.enter_telephone_data(edit_contact)
+        self.enter_email_data(edit_contact)
+        self.enter_birthday(edit_contact)
+        wd.find_element_by_xpath("//input[@value='Update'][2]").click()
+        self.click_home_page()
+
+
+
+
