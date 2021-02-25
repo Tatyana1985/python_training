@@ -7,4 +7,10 @@ def test_edit_first_contact(app):
                           home="1212", mobile="54564", work="456445", fax="545345", email="54t@hj.try",
                           email2="tyty@tyty.tyty",
                           email3="tyt@uiui.tyt", homepage="rtyt@yuu.uyu", day="4", month="March", year="2001")
+    if app.contact.count() == 0:
+        app.contact.add_contact(Contact(firstname="asdfg", middlename="asdfg", lastname="asdfg", nickname="asdfg", title="asdfg",
+                          company="asdfg", address="asdfg",
+                          home="565656", mobile="677565", work="76876687", fax="67678678", email="rert@uyuy.try",
+                          email2="rtrt@tyty.tyty",
+                          email3="rtr@uiui.tyt", homepage="trtr@yuu.uyu", day="7", month="August", year="2000"))
     app.contact.edit_first_contact(edit_contact)
