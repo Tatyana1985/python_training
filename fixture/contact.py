@@ -83,7 +83,13 @@ class ContactHelper:
 
     def open_add_new_page(self):
         wd = self.app.wd
-        wd.find_element_by_link_text("add new").click()
+        if not (wd.current_url.endswith("/edit.php")):
+            wd.find_element_by_link_text("add new").click()
+
+    def open_home_page(self):
+        wd = self.app.wd
+        if not (wd.current_url.endswith("/addressbook/")):
+            wd.find_element_by_link_text("home").click()
 
     def add_contact(self, new_contact):
         self.open_add_new_page()
@@ -97,6 +103,7 @@ class ContactHelper:
 
     def delete_first_contact(self):
         wd = self.app.wd
+        self.open_home_page()
         wd.find_element_by_link_text("Last name")
         wd.find_element_by_name("selected[]").click()
         wd.find_element_by_xpath("//input[@value='Delete']").click()
@@ -104,6 +111,7 @@ class ContactHelper:
 
     def edit_first_contact(self, edit_contact):
         wd = self.app.wd
+        self.open_home_page()
         wd.find_element_by_xpath("//img[@title='Edit']").click()
         self.enter_name_data(edit_contact)
         self.enter_job_data(edit_contact)
