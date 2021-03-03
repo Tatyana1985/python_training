@@ -13,4 +13,11 @@ def test_edit_first_contact(app):
                           home="565656", mobile="677565", work="76876687", fax="67678678", email="rert@uyuy.try",
                           email2="rtrt@tyty.tyty",
                           email3="rtr@uiui.tyt", homepage="trtr@yuu.uyu", day="7", month="August", year="2000"))
+
+    old_contacts = app.contact.get_contact_list()
     app.contact.edit_first_contact(edit_contact)
+    edit_contact.id = old_contacts[0].id
+    new_contacts = app.contact.get_contact_list()
+    assert len(old_contacts) == len(new_contacts)
+    old_contacts[0] = edit_contact
+    assert sorted(old_contacts, key=Contact.id_or_max) == sorted(new_contacts, key=Contact.id_or_max)
