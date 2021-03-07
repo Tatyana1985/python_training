@@ -106,19 +106,25 @@ class ContactHelper:
         self.contact_cache = None
 
     def delete_first_contact(self):
+        self.delete_contact_by_index(0)
+
+    def delete_contact_by_index(self, index):
         wd = self.app.wd
         self.open_home_page()
         wd.find_element_by_link_text("Last name")
-        wd.find_element_by_name("selected[]").click()
+        wd.find_elements_by_name("selected[]")[index].click()
         wd.find_element_by_xpath("//input[@value='Delete']").click()
         wd.switch_to_alert().accept()
         wd.find_element_by_css_selector("div.msgbox")
         self.contact_cache = None
 
     def edit_first_contact(self, edit_contact):
+        self.edit_contact_by_index(0, edit_contact)
+
+    def edit_contact_by_index(self, index, edit_contact):
         wd = self.app.wd
         self.open_home_page()
-        wd.find_element_by_xpath("//img[@title='Edit']").click()
+        wd.find_elements_by_xpath("//img[@title='Edit']")[index].click()
         self.enter_name_data(edit_contact)
         self.enter_job_data(edit_contact)
         self.enter_telephone_data(edit_contact)
@@ -127,6 +133,7 @@ class ContactHelper:
         wd.find_element_by_xpath("//input[@value='Update'][2]").click()
         self.click_home_page()
         self.contact_cache = None
+
 
     def count(self):
         wd = self.app.wd
