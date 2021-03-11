@@ -22,9 +22,10 @@ class ContactHelper:
         wd.find_element_by_name("bday").click()
         Select(wd.find_element_by_name("bday")).select_by_visible_text("7")
         wd.find_element_by_xpath("//option[@value='" + contact.day + "']").click()
-        wd.find_element_by_name("bmonth").click()
-        Select(wd.find_element_by_name("bmonth")).select_by_visible_text(contact.month)
-        wd.find_element_by_xpath("//option[@value='" + contact.month + "']").click()
+        if (contact.month != "" or contact.month is None):
+            wd.find_element_by_name("bmonth").click()
+            Select(wd.find_element_by_name("bmonth")).select_by_visible_text(contact.month)
+            wd.find_element_by_xpath("//option[@value='" + contact.month + "']").click()
         wd.find_element_by_name("byear").click()
         wd.find_element_by_name("byear").clear()
         wd.find_element_by_name("byear").send_keys(contact.year)
