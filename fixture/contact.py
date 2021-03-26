@@ -111,11 +111,7 @@ class ContactHelper:
 
     def add_contact(self, new_contact):
         self.open_add_new_page()
-        self.enter_name_data(new_contact)
-        self.enter_job_data(new_contact)
-        self.enter_telephone_data(new_contact)
-        self.enter_email_data(new_contact)
-        self.enter_birthday(new_contact)
+        self.enter_data(new_contact)
         self.enter_secondary(new_contact)
         self.click_enter()
         self.click_home_page()
@@ -134,6 +130,20 @@ class ContactHelper:
         wd.find_element_by_css_selector("div.msgbox")
         self.contact_cache = None
 
+    def delete_contact_by_id(self, id):
+        wd = self.app.wd
+        self.open_home_page()
+        self.select_contact_by_id(id)
+        wd.find_element_by_xpath("//input[@value='Delete']").click()
+        wd.switch_to_alert().accept()
+        wd.find_element_by_css_selector("div.msgbox")
+        wd.find_element_by_link_text("home").click()
+        self.contact_cache = None
+
+    def select_contact_by_id(self, id):
+        wd = self.app.wd
+        wd.find_element_by_css_selector("input[value='%s']" % id).click()
+
     def edit_first_contact(self, edit_contact):
         self.edit_contact_by_index(0, edit_contact)
 
@@ -141,15 +151,27 @@ class ContactHelper:
         wd = self.app.wd
         self.open_home_page()
         wd.find_elements_by_xpath("//img[@title='Edit']")[index].click()
+        self.enter_data(edit_contact)
+        wd.find_element_by_xpath("//input[@value='Update'][2]").click()
+        self.click_home_page()
+        self.contact_cache = None
+
+    def enter_data(self, edit_contact):
         self.enter_name_data(edit_contact)
         self.enter_job_data(edit_contact)
         self.enter_telephone_data(edit_contact)
         self.enter_email_data(edit_contact)
         self.enter_birthday(edit_contact)
+
+    def edit_contact_by_id(self, id, contact):
+        wd = self.app.wd
+        self.open_home_page()
+        self.select_contact_by_id(id)
+        wd.find_element_by_xpath("//a[contains(@href,'edit') and contains(@href,'id=%s')]" % id).click()
+        self.enter_data(contact)
         wd.find_element_by_xpath("//input[@value='Update'][2]").click()
         self.click_home_page()
         self.contact_cache = None
-
 
     def count(self):
         wd = self.app.wd
