@@ -25,6 +25,10 @@ def random_string(prefix, maxlen):
     symbols = string.ascii_letters + string.digits + " "*10
     return prefix + "".join([random.choice(symbols) for i in range (random.randrange(maxlen))])
 
+def random_string_not_sp(prefix, maxlen):
+    symbols = string.ascii_letters + string.digits
+    return prefix + "".join([random.choice(symbols) for i in range (random.randrange(maxlen))])
+
 def random_dig_string(maxlen):
     symbols = string.digits + " "
     return "".join([random.choice(symbols) for i in range (random.randrange(maxlen))])
@@ -46,7 +50,7 @@ testdata = [empty] + [
             Contact(firstname=random_string("firstname", 10), middlename=random_string("middlename", 10), lastname=random_string("lastname", 10), nickname=random_string("nickname", 10),
                     title=random_string("title", 10), company=random_string("company", 10), address=random_string("address", 10),
                     homephone=random_dig_string(10), mobilephone=random_dig_string(10), workphone=random_dig_string(10), fax=random_dig_string(10),
-                    email=random_string("email", 5), email2=random_string("email2", 5), email3=random_string("email3", 5), homepage=random_string("homepage", 5),
+                    email=random_string_not_sp("email", 5), email2=random_string_not_sp("email2", 5), email3=random_string_not_sp("email3", 5), homepage=random_string_not_sp("homepage", 5),
                     day=str(random_date(1, 31)), month=random_month(), year=str(random_date(1900, 2020)),
                     address2=random_string("address2", 5), secondaryphone=random_dig_string(10), notes=random_string("notes", 5))
     for i in range(2)
