@@ -1,7 +1,7 @@
 import re
 
 from selenium.webdriver.support.select import Select
-
+import time
 from model.contact import Contact
 
 
@@ -241,7 +241,25 @@ class ContactHelper:
         return Contact(homephone=homephone, workphone=workphone, mobilephone=mobilephone,
                        secondaryphone=secondaryphone)
 
+    def add_contact_in_group(self, contact, group):
+        wd = self.app.wd
+        self.open_home_page()
+        self.select_contact_by_id(contact.id)
+        wd.find_element_by_xpath("//select[@name='to_group']").click()
+        wd.find_element_by_xpath("//select[@name='to_group']//option[@value='%s']" % group.id).click()
+        wd.find_element_by_xpath("//input[@name='add']").click()
+        self.open_home_page()
 
+    def delete_contact_in_group(self, contact, group):
+        wd = self.app.wd
+        self.open_home_page()
+        wd.find_element_by_xpath("//select[@name='group']").click()
+        wd.find_element_by_xpath("//select[@name='group']//option[@value='%s']" % group.id).click()
+        self.select_contact_by_id(contact.id)
+        wd.find_element_by_xpath("//input[@name='remove']").click()
+        self.open_home_page()
+        wd.find_element_by_xpath("//select[@name='group']").click()
+        wd.find_element_by_xpath("//select[@name='group']//option[text()='[all]']").click()
 
 
 
