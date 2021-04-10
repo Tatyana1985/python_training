@@ -1,7 +1,7 @@
 Scenario Outline: Add new group
     Given a group list
     Given a group with <name>, <header> and <footer>
-    When I add a the group to the list
+    When I add the group to the list
     Then the new group list is equal to the old list with the added group
 
     Examples:
@@ -10,7 +10,7 @@ Scenario Outline: Add new group
     | name2 | header2 | footer2 |
 
 
-Scenario Outline: Delete a group
+Scenario: Delete a group
     Given a non-empty group list
     Given a random group from the list
     When I delete the group from the list
