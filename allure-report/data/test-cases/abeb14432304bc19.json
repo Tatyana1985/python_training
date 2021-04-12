@@ -1,0 +1,145 @@
+{
+  "uid" : "abeb14432304bc19",
+  "name" : "test_add_group[None:nameV@h:header:footer=g+ o'C{Ivn\"0]",
+  "fullName" : "test.test_add_group#test_add_group",
+  "historyId" : "0896731457949b8d23961b1591cb6530",
+  "time" : {
+    "start" : 1618207770670,
+    "stop" : 1618207771580,
+    "duration" : 910
+  },
+  "status" : "failed",
+  "statusMessage" : "AssertionError: assert [9:name*6 -:h...:footerR, ...] == [9:name*6 -:h...:footerR, ...]\n  Left contains one more item: None:nameV@h:header:footer=g+ o'C{Ivn\"0\n  Use -v to get the full diff",
+  "statusTrace" : "app = <fixture.application.Application object at 0x00000108FAE12C70>\ndb = <fixture.db.DbFixture object at 0x00000108FAE128E0>, json_groups = None:nameV@h:header:footer=g+ o'C{Ivn\"0\ncheck_ui = False\n\n    def test_add_group(app, db, json_groups, check_ui):\n        group = json_groups\n        old_groups = db.get_group_list()\n        app.group.create(group)\n        new_groups = db.get_group_list()\n        old_groups.append(group)\n>       assert sorted(old_groups, key=Group.id_or_max) == sorted(new_groups, key=Group.id_or_max)\nE       assert [9:name*6 -:h...:footerR, ...] == [9:name*6 -:h...:footerR, ...]\nE         Left contains one more item: None:nameV@h:header:footer=g+ o'C{Ivn\"0\nE         Use -v to get the full diff\n\ntest\\test_add_group.py:14: AssertionError",
+  "flaky" : false,
+  "beforeStages" : [ {
+    "name" : "db",
+    "time" : {
+      "start" : 1618207763176,
+      "stop" : 1618207763187,
+      "duration" : 11
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0,
+    "stepsCount" : 0,
+    "hasContent" : false
+  }, {
+    "name" : "app",
+    "time" : {
+      "start" : 1618207770633,
+      "stop" : 1618207770669,
+      "duration" : 36
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0,
+    "stepsCount" : 0,
+    "hasContent" : false
+  }, {
+    "name" : "check_ui",
+    "time" : {
+      "start" : 1618207770669,
+      "stop" : 1618207770669,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0,
+    "stepsCount" : 0,
+    "hasContent" : false
+  }, {
+    "name" : "stop",
+    "time" : {
+      "start" : 1618207763176,
+      "stop" : 1618207763176,
+      "duration" : 0
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0,
+    "stepsCount" : 0,
+    "hasContent" : false
+  } ],
+  "afterStages" : [ {
+    "name" : "db::fin",
+    "time" : {
+      "start" : 1618207779534,
+      "stop" : 1618207779535,
+      "duration" : 1
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0,
+    "stepsCount" : 0,
+    "hasContent" : false
+  }, {
+    "name" : "stop::fin",
+    "time" : {
+      "start" : 1618207779538,
+      "stop" : 1618207781934,
+      "duration" : 2396
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0,
+    "stepsCount" : 0,
+    "hasContent" : false
+  } ],
+  "labels" : [ {
+    "name" : "parentSuite",
+    "value" : "test"
+  }, {
+    "name" : "suite",
+    "value" : "test_add_group"
+  }, {
+    "name" : "host",
+    "value" : "Chunikhina-VRN"
+  }, {
+    "name" : "thread",
+    "value" : "10320-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "test.test_add_group"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "json_groups",
+    "value" : "None:nameV@h:header:footer=g+ o'C{Ivn\"0"
+  } ],
+  "links" : [ ],
+  "hidden" : true,
+  "retry" : true,
+  "extra" : {
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "abeb14432304bc19.json",
+  "parameterValues" : [ "None:nameV@h:header:footer=g+ o'C{Ivn\"0" ]
+}

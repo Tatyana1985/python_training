@@ -1,0 +1,57 @@
+{
+  "uid" : "4b4757e66a1912dae1a509f688f20b0f",
+  "name" : "categories",
+  "children" : [ {
+    "name" : "Product defects",
+    "children" : [ {
+      "name" : "AssertionError: assert [9:name*6 -:h...:footerR, ...] == [9:name*6 -:h...:footerR, ...]\n  Left contains one more item: None:namel :header/UrLT':r^zH~X^r:footerF'r9s)?}g\n  Use -v to get the full diff",
+      "children" : [ {
+        "name" : "test_add_group[None:namel :header/UrLT':r^zH~X^r:footerF'r9s)?}g]",
+        "uid" : "b0a70656f9ffb696",
+        "parentUid" : "002cd6957bea5b9d19c0526105136672",
+        "status" : "failed",
+        "time" : {
+          "start" : 1618211581838,
+          "stop" : 1618211582884,
+          "duration" : 1046
+        },
+        "flaky" : true,
+        "parameters" : [ "None:namel :header/UrLT':r^zH~X^r:footerF'r9s)?}g" ]
+      } ],
+      "uid" : "002cd6957bea5b9d19c0526105136672"
+    }, {
+      "name" : "AssertionError: assert [9:name*6 -:h...:footerR, ...] == [9:name*6 -:h...:footerR, ...]\n  Left contains one more item: None:nameV@h:header:footer=g+ o'C{Ivn\"0\n  Use -v to get the full diff",
+      "children" : [ {
+        "name" : "test_add_group[None:nameV@h:header:footer=g+ o'C{Ivn\"0]",
+        "uid" : "9aaef9ef1c93dfce",
+        "parentUid" : "f954d4e25ab17a4b63879bce285798b0",
+        "status" : "failed",
+        "time" : {
+          "start" : 1618211583189,
+          "stop" : 1618211584306,
+          "duration" : 1117
+        },
+        "flaky" : true,
+        "parameters" : [ "None:nameV@h:header:footer=g+ o'C{Ivn\"0" ]
+      } ],
+      "uid" : "f954d4e25ab17a4b63879bce285798b0"
+    }, {
+      "name" : "AssertionError: assert [9:name*6 -:h...:footerR, ...] == [9:name*6 -:h...:footerR, ...]\n  Left contains one more item: None:name@# :header\\:footerzIM,FSp/j>RWID\n  Use -v to get the full diff",
+      "children" : [ {
+        "name" : "test_add_group[None:name@# :header\\:footerzIM,FSp/j>RWID]",
+        "uid" : "4d16e2b5296eb2e9",
+        "parentUid" : "95da8a198c7b7190210847e9ddce3eff",
+        "status" : "failed",
+        "time" : {
+          "start" : 1618211586726,
+          "stop" : 1618211587811,
+          "duration" : 1085
+        },
+        "flaky" : true,
+        "parameters" : [ "None:name@# :header\\:footerzIM,FSp/j>RWID" ]
+      } ],
+      "uid" : "95da8a198c7b7190210847e9ddce3eff"
+    } ],
+    "uid" : "8fb3a91ba5aaf9de24cc8a92edc82b5d"
+  } ]
+}
